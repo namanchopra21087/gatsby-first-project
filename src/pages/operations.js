@@ -1,36 +1,52 @@
 import React from 'react'
 import Layout from '../components/Layout'
-import { Link } from 'gatsby'
+import { Link, graphql, useStaticQuery } from 'gatsby'
 import * as styles from '../styles/operations.module.css'
 
 export default function Operations() {
+  const data=useStaticQuery(graphql`
+  query operations {
+    allContentfulOperations {
+      edges {
+        node {
+          image {
+            url
+          }
+          title
+        }
+      }
+    }
+  }
+  `)
+
+  const [ delivery, production, order, warehouse]=data.allContentfulOperations.edges
   return (
     <Layout>
       <section className={styles.operations}>
         <div>
-          <img src='/delivery.png' alt='deliver&courier'></img>
-          <h2>Delivery & Courier</h2>
+          <img src={delivery.node.image.url} alt='deliver&courier'></img>
+          <h2>{delivery.node.title}</h2>
           <p>Offering brands a completely integrated brand building solution across all digital 
             services and encompassing every stage of the journey</p>
           <Link className={styles.btn}>Find out more</Link>
         </div>
         <div>
-          <img src='/production.png' alt='production'></img>
-          <h2>Production</h2>
+          <img src={production.node.image.url} alt='production'></img>
+          <h2>{production.node.title}</h2>
           <p>Offering brands a completely integrated brand building solution across all digital 
             services and encompassing every stage of the journey</p>
           <Link className={styles.btn}>Find out more</Link>
         </div>
         <div>
-          <img src='/orderManagement.png' alt='order-management'></img>
-          <h2>Order Management</h2>
+          <img src={order.node.image.url} alt='order-management'></img>
+          <h2>{order.node.title}</h2>
           <p>Offering brands a completely integrated brand building solution across all digital 
             services and encompassing every stage of the journey</p>
           <Link className={styles.btn}>Find out more</Link>
         </div>
         <div>
-          <img src='/warehouse.png' alt='warehouse'></img>
-          <h2>Warehouse Management</h2>
+          <img src={warehouse.node.image.url} alt='warehouse'></img>
+          <h2>{warehouse.node.title}</h2>
           <p>Offering brands a completely integrated brand building solution across all digital 
             services and encompassing every stage of the journey</p>
           <Link className={styles.btn}>Find out more</Link>

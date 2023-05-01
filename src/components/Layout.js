@@ -10,7 +10,7 @@ export default function Layout( {children} ) {
                 {children}
             </div>
         <footer>
-            <p>Copyright 2023 with THG</p>
+            <p><b>THG</b>/INGENUITY<br/>Copyright 2023 All Rights Reserved.</p>
         </footer>
 
     </div>
