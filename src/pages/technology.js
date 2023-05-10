@@ -6,7 +6,7 @@ import * as styles from '../styles/technology.module.css'
 export default function Technology() {
   const data =useStaticQuery(graphql`
   query contentFullImage{
-    allContentfulPocImages{
+    allContentfulTechnology{
       edges {
         node {
           title
@@ -19,7 +19,7 @@ export default function Technology() {
   }
 `)
 
-const [ commerce, apps]=data.allContentfulPocImages.edges
+const [ commerce, apps]=data.allContentfulTechnology.edges
   return (
     <Layout>
       <section className={styles.technology}>
