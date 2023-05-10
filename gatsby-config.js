@@ -26,6 +26,6 @@ module.exports = {
   ],
   siteMetadata:{
     description:"Ingenuity",
-    title:"THG Ingenuity Platform Product Areas"
+    title:"THG Ingenuity Platform Product"
   }
 }
